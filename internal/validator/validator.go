@@ -59,5 +59,6 @@ func PermittedInt(value int, permittedValues ...int) bool {
 			return true
 		}
 	}
+
 	return false
 }
