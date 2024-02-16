@@ -1,6 +1,6 @@
 module github.com/ares-5/snippetbox
 
-go 1.21.6
+go 1.23
 
 require (
 	github.com/alexedwards/scs/mysqlstore v0.0.0-20240203174419-a38e822451b6 // indirect
