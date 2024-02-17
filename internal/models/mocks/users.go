@@ -1,6 +1,10 @@
 package mocks
 
-import "github.com/ares-5/snippetbox/internal/models"
+import (
+	"time"
+
+	"github.com/ares-5/snippetbox/internal/models"
+)
 
 type UserModel struct{}
 
@@ -27,4 +31,21 @@ func (m *UserModel) Exists(id int) (bool, error) {
 	default:
 		return false, nil
 	}
+}
+
+func (m *UserModel) Get(id int) (*models.User, error) {
+	switch id {
+	case 1:
+		return &models.User{
+			Name:    "Alice",
+			Email:   "alice@example.com",
+			Created: time.Now().Add(-7),
+		}, nil
+	default:
+		return nil, models.ErrNoRecord
+	}
+}
+
+func (m *UserModel) ChangePassword(userSessionId int, currentPassword string, newPassword string) error {
+	return nil
 }

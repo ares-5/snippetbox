@@ -53,6 +53,10 @@ func Matches(value string, rx *regexp.Regexp) bool {
 	return rx.MatchString(value)
 }
 
+func StringMatches(firstValue string, secondValue string) bool {
+	return strings.EqualFold(firstValue, secondValue)
+}
+
 func PermittedValue[T comparable](value T, permittedValues ...T) bool {
 	for i := range permittedValues {
 		if value == permittedValues[i] {
